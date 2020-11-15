@@ -64,7 +64,7 @@ public class RestApiController {
             byte[] bytes = file.getBytes();
 
 //            Path path = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/course/" + image);
-            Path path = Paths.get("H:/Fiverr Work/Project #5 Online School/onlineschool/src/main/webapp/WEB-INF/img/course/" + image);
+            Path path = Paths.get("E:/onlineschool/src/main/webapp/WEB-INF/img/course/" + image);
             Files.write(path, bytes);
         } catch (IOException e) {
             return "{\"action\":false}";

@@ -74,6 +74,38 @@
                                     </a>
                                     
                                 </h3>
+                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo_${course.id}">Contents</button>
+                                  <div id="demo_${course.id}" class="collapse">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Sn</th>
+                                            <th>Lectures</th>
+                                            <th>Action</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>
+                                            <button class="btn btn-info">Edit</button>
+                                            <button class="btn btn-danger">X</button>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Mary</td>
+                                            <td>Moe</td>
+                                            <td>mary@example.com</td>
+                                          </tr>
+                                          <tr>
+                                            <td>July</td>
+                                            <td>Dooley</td>
+                                            <td>july@example.com</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                  </div>
                             </c:forEach>
                         </div>
                     </div> 

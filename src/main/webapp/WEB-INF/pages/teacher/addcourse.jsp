@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="btn-holder" data-provides="fileupload">
 
-                                    <input class="inputfile" type="file" id="fileSelect" style="width:0">
+                                    <input class="inputfile" type="file" id="fileSelect" >
                                     <label class=" btn btn-info " style="margin-top: 7px" for="fileSelect">Browse</label>
                                     <button class="btn btn-success" onclick="uploadImage();return false" >Uplaod</button>
                                 </div>
