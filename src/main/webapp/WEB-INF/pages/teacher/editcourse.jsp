@@ -66,7 +66,7 @@
                         <form action="${base}/dashboard/updatecourse"  modelAttribute="course" method="POST">
                             <div class="form-group">
                                 <label>Course Name:</label>
-                                <!--<input type="hidden" name="teacher.user" value="$ {user}"/>-->
+                                <input type="hidden" name="id" value="${course.id}"/>
                                 <input type="text" class="form-control" name="courseName" value="${course.courseName}" placeholder="Course Name">
                             </div>
                             <div class="form-group">
@@ -99,7 +99,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Starts from</label>
-                                <input type="hidden" id="datevalue" name="startingDate" >
+                                <input type="hidden" id="datevalue" name="startingDate" value="${course.startingDate}" >
                                 <input type="date" id="datepicker" onchange="formatedate()" name="startingDateString" value="2020-10-01"   class="form-control"  placeholder="pick a date">
                             </div>
                             <script>
@@ -132,7 +132,7 @@
                             <div class="form-group">
                                 <label>Price</label>
                                 <input type="number" class="form-control" name="price" value="${course.price}">
-                                <input id="imagevalue" type="hidden" name="image" value="cu-1.jpg"/>
+                                <input id="imagevalue" type="hidden" name="image" value="${course.image}"/>
                             </div>
                             <div style="width:60%;margin:100px auto;border:1px solid black">
                                 <div class="img-holder">

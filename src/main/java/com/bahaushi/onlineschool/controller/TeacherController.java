@@ -60,6 +60,8 @@ public class TeacherController {
 
         if (encoder.matches(user.getPassword(), userauth.getPassword())) {
             httpSession.setAttribute("admin", userauth);
+
+
             model.setViewName("teacher/teacher_dashboard");
         } else {
             model.setViewName("teacher/login");
@@ -76,8 +78,12 @@ public class TeacherController {
 
     @PostMapping("updatecourse")
     public ModelAndView updateCourse(@ModelAttribute("course") Courses course,
-            ModelAndView model) {
+            ModelAndView model, HttpSession httpSession) {
+        User user = (User) httpSession.getAttribute("admin");
+        Teacher teacher = teacherService.getTeacherByUserId(user.getId());
         try {
+            course.setTeacher(teacher);
+            course.setStatus("running");
             courseService.updateCourse(course);
             model.setViewName("teacher/teacher_dashboard");
         } catch (Exception e) {
