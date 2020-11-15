@@ -1,0 +1,176 @@
+/* Header */
+.support-button .button {
+    padding-top: 30px;
+    margin-left: 0;
+}
+
+.navigation.sticky .support-button .button {
+  padding-top: 28px;
+}
+.navigation.sticky .support-button .button {
+  padding-top: 28px;
+}
+
+/* .support-button .button {
+    padding-top: 30px;
+} */
+
+/* Login */
+.signin-form {
+    border-radius: 5px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 75px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 75px 0px rgba(0,0,0,0.1);
+}
+
+.signin-form .form-title{
+    background-color: #07294d;
+    padding-top: 35px;
+    padding-bottom: 40px;
+}
+.signin-form .form-title h3{
+    color: #ffc600;
+    font-size: 36px;
+}
+.signin-form .form-title span{
+    font-size: 24px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+.signin-form .main-form{
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    background-color: #fff;
+
+}
+.signin-form .main-form .singel-form{
+    margin-top: 20px;
+}
+.signin-form .main-form .singel-form input{
+    width: 100%;
+    height: 60px;
+    padding: 0 30px;
+    font-size: 15px;
+    color: #8a8a8a;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+}
+.signin-form .main-form .singel-form .main-btn{
+    width: 100%;
+    line-height: 60px;
+    margin-top: 20px;
+}
+
+.signin-block .signin-col {
+  margin: 0 auto;
+}
+
+/* Register */
+.register-block {
+}
+
+/* Feature  */
+.feature{
+    position: relative;
+    z-index: 5;
+}
+.feature .feature-title{}
+.feature .feature-title h3{
+    font-size: 36px;
+    color: inherit;
+    padding-bottom: 15px;
+}
+
+.feature ul li .singel-feature{
+    padding-top: 55px;
+    overflow: hidden;
+}
+.feature ul li .singel-feature .icon{
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+    padding-right: 30px;
+}
+.feature ul li .singel-feature .cont {
+  width: 78%;
+  float: left;
+    overflow: hidden;
+}
+.feature ul li .singel-feature .cont h4{
+    font-size: 24px;
+    color: inherit;
+    padding-bottom: 15px;
+}
+.feature ul li .singel-feature .cont p{
+    color: inherit;
+}
+
+/* Single Course */
+.singel-course {
+  border: 1px solid #e8e9eb;
+}
+
+/* footer */
+#footer-part {
+  background: #fafafa;
+  border-top: 1px solid #e6e6e6
+}
+
+.footer-link{
+    overflow: hidden;
+}
+.footer-link ul{
+    float: left;
+    overflow: hidden;
+}
+.footer-link ul li{
+  line-height: 22px;
+  float: left;
+  margin-right: 20px;
+}
+.footer-link ul li a{
+    font-size: 18px;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+
+.footer-social {
+  padding-right: 50px;
+}
+.footer-social ul {
+  margin-top: -5px
+}
+.footer-social ul li{
+    display: inline-block;
+    margin-right: 15px;
+}
+.footer-social ul li:last-child{
+    margin-right: 0;
+}
+
+.footer-social ul li a{
+    width: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #021d3a;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+
+}
+.footer-social ul li a:hover{
+    background-color: #ffc600;
+    color: #021d3a;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+
+}
+
+/* BLOG PAGE */
+.blog-page .section-title h5:before {
+  display: none
+}
