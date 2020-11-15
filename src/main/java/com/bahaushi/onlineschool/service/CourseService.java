@@ -5,11 +5,13 @@
  */
 package com.bahaushi.onlineschool.service;
 
+import com.bahaushi.onlineschool.repository.CourseContentRepository;
 import com.bahaushi.onlineschool.repository.CoursesRepository;
+
+import java.util.ArrayList;
 import java.util.List;
-import model.CourseCount;
-import model.Courses;
-import model.MyCourses;
+
+import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,8 @@ public class CourseService {
 
     @Autowired
     CoursesRepository coursesRepository;
+    @Autowired
+    CourseContentRepository courseContentRepository;
 
     public String saveCourse(Courses course) {
         return coursesRepository.saveCourse(course);
@@ -39,6 +43,19 @@ public class CourseService {
         return coursesRepository.getAllCourses();
     }
 
+    public List<CourseDomain> getAllCourseDomainByTeacherId(Integer id) {
+        List<Courses> courses = coursesRepository.getCourseByTeacherId(id);
+        List<CourseDomain> CourseDomainList = new ArrayList();
+        for(Courses course: courses){
+            List<Coursecontent> contentlist=courseContentRepository.getCourseContentByCourseId(course.getId());
+            CourseDomain domain = new CourseDomain();
+            domain.setCoursecontents(contentlist);
+            domain.setCourses(course);
+            CourseDomainList.add(domain);
+        }
+
+        return CourseDomainList;
+    }
     public Courses getCourseByCourseId(Integer id) {
         return coursesRepository.getCourseByCourseId(id);
     }

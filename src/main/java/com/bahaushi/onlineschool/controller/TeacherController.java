@@ -11,10 +11,8 @@ import com.bahaushi.onlineschool.service.TeacherService;
 import com.bahaushi.onlineschool.service.UserService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import model.Coursecontent;
-import model.Courses;
-import model.Teacher;
-import model.User;
+
+import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -143,7 +141,7 @@ public class TeacherController {
     public ModelAndView gotoCourses(ModelAndView model, HttpSession httpSession) {
         User user = (User) httpSession.getAttribute("admin");
         Teacher teacher = teacherService.getTeacherByUserId(user.getId());
-        List<Courses> courselist = courseService.getCourseByTeacherId(teacher.getId());
+        List<CourseDomain> courselist = courseService.getAllCourseDomainByTeacherId(teacher.getId());
         model.addObject("courses", courselist);
         model.setViewName("teacher/courses");
         return model;

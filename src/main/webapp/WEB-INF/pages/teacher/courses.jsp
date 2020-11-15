@@ -59,50 +59,54 @@
                     <div class="container">
                         <div class="jumbotron">
                             <h1>On Going Courses</h1>
-                            <c:forEach var="course" items="${courses}"  varStatus="status" >
+                            <c:forEach var="domain" items="${courses}"  varStatus="status" >
                                 <h3 class="c-des">
-                                    <span class="c-name">#${course.id}</span>
-                                    ${course.courseName}
-                                    <a href="addcoursecontent/${course.id}">
+                                    <span class="c-name">#${status.index+1}</span>
+                                    ${domain.courses.courseName}
+                                    <a href="addcoursecontent/${domain.courses.id}">
                                         <button class="btn btn-success btn-left">Add Content</button>
                                     </a>
-                                    <a href="editcourse/${course.id}">
+                                    <a href="editcourse/${domain.courses.id}">
                                         <button class="btn btn-info btn-left" style="margin-right:  10px;">Edit</button>
                                     </a>
-                                    <a href="deletecourse/${course.id}">
+                                    <a href="deletecourse/${domain.courses.id}">
                                         <button  class="btn btn-danger btn-left" style="margin-right:10px;">X</button>
                                     </a>
                                     
                                 </h3>
-                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo_${course.id}">Contents</button>
-                                  <div id="demo_${course.id}" class="collapse">
+                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo_${domain.courses.id}">Contents</button>
+                                  <div id="demo_${domain.courses.id}" class="collapse" style="margin-top:20px;">
                                     <table class="table table-bordered">
                                         <thead>
                                           <tr>
                                             <th>Sn</th>
                                             <th>Lectures</th>
+                                            <th>url</th>
                                             <th>Action</th>
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          <tr>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>
-                                            <button class="btn btn-info">Edit</button>
-                                            <button class="btn btn-danger">X</button>
-                                            </td>
-                                          </tr>
-                                          <tr>
-                                            <td>Mary</td>
-                                            <td>Moe</td>
-                                            <td>mary@example.com</td>
-                                          </tr>
-                                          <tr>
-                                            <td>July</td>
-                                            <td>Dooley</td>
-                                            <td>july@example.com</td>
-                                          </tr>
+                                        <c:choose>
+                                        <c:when test="${domain.coursecontents.size() !=0}">
+                                            <c:forEach var="content" items="${domain.coursecontents}"  varStatus="cntentstatus" >
+                                                                                      <tr>
+                                                                                        <td>${cntentstatus.index+1}</td>
+                                                                                        <td>Lecture ${content.id}</td>
+                                                                                        <td>${content.lectureUrl}</td>
+                                                                                        <td>
+                                                                                        <button class="btn btn-info">Edit</button>
+                                                                                        <button class="btn btn-danger">X</button>
+                                                                                        </td>
+                                                                                      </tr>
+                                                                                      </c:forEach>
+                                        </c:when>
+                                        <c:otherwise>
+                                        <tr>
+                                            <td colspan="4" style="font-weight:bolder;text-align:center;font-size:20px;"> No Content Yet</td>
+                                        </tr>
+                                        </c:otherwise>
+                                        </c:choose>
+
                                         </tbody>
                                       </table>
                                   </div>
