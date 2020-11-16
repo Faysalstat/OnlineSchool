@@ -68,10 +68,40 @@ public class TeacherController {
         return model;
     }
 
+
     @GetMapping("addcourse")
     public ModelAndView gotoAddcourse(ModelAndView model) {
         model.setViewName("teacher/addcourse");
         return model;
+    }
+
+    @GetMapping("editcontent/{id}")
+    public ModelAndView editContent(@PathVariable("id") Integer id,
+                                   ModelAndView model,HttpSession httpSession) {
+        Coursecontent content = courseContentService.getCourseContentById(id);
+        httpSession.setAttribute("editablecontent", content);
+        model.addObject("coursecontent",content);
+        model.setViewName("teacher/editcoursecontent");
+        return model;
+    }
+
+    @PostMapping("editcoursecontent")
+    public ModelAndView upodateContent(@ModelAttribute("coursecontent") Coursecontent updatedcontent,
+                                    ModelAndView model,HttpSession httpSession) {
+        Coursecontent content = (Coursecontent)  httpSession.getAttribute("editablecontent");
+        updatedcontent.setId(content.getId());
+        updatedcontent.setCourses(content.getCourses());
+        courseContentService.updateContent(updatedcontent);
+        model.setViewName("teacher/teacher_dashboard");
+        return model;
+    }
+
+    @GetMapping("deletecontent/{id}")
+    public ModelAndView deletecontent(@PathVariable("id") Integer id,
+                                    ModelAndView model,HttpSession httpSession) {
+        Coursecontent content = courseContentService.getCourseContentById(id);
+        courseContentService.deleteContent(content);
+        return gotoCourses(model,httpSession);
     }
 
     @PostMapping("updatecourse")
@@ -108,6 +138,8 @@ public class TeacherController {
         }
         return model;
     }
+
+
 
     @PostMapping("addcoursecontent")
     public ModelAndView gotoAddcourseContent(@ModelAttribute("coursecontent") Coursecontent courseContent, ModelAndView model) {

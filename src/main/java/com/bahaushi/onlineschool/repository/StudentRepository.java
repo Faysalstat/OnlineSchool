@@ -6,6 +6,8 @@
 package com.bahaushi.onlineschool.repository;
 
 import java.util.List;
+
+import model.Courses;
 import model.Student;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -44,6 +46,13 @@ public class StudentRepository {
         query.setParameter("id", id);
         List<Student> list = query.list();
         return list.get(0);
+    }
+    public List<Student> getStudentsByCourse(Courses courses) {
+        String sql = "select mc.student from MyCourses mc where mc.courses=:courses";
+        Query query = sessionFactory.getCurrentSession().createQuery(sql);
+        query.setParameter("courses", courses);
+        List<Student> list = query.list();
+        return list;
     }
     public Student getStudentByUserId(Integer id) {
         String sql = "select s from Student s where s.user.id=:id";

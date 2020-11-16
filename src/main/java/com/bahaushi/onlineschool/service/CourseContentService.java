@@ -7,7 +7,10 @@ package com.bahaushi.onlineschool.service;
 
 import com.bahaushi.onlineschool.repository.CourseContentRepository;
 import java.util.List;
+
+import com.bahaushi.onlineschool.repository.StudentRepository;
 import model.Coursecontent;
+import model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +22,24 @@ import org.springframework.stereotype.Service;
 public class CourseContentService {
      @Autowired
      CourseContentRepository  courseContentRepository;
+    @Autowired
+    MessageService messageService;
+    @Autowired
+    StudentRepository studentRepository;
     
     public String saveContent(Coursecontent coursecontent) {
-        return courseContentRepository.saveContent(coursecontent);
+        try{
+            courseContentRepository.saveContent(coursecontent);
+            List<Student> students = studentRepository.getStudentsByCourse(coursecontent.getCourses());
+            for(Student student:students){
+                messageService.SendMessageNewContentUploadSuccess(coursecontent.getCourses(),student);
+            }
+        }catch (Exception e){
+            e.getStackTrace();
+            return "failed";
+        }
+
+        return "Success";
     }
     public String updateContent(Coursecontent coursecontent) {
         return courseContentRepository.updateContent(coursecontent);
@@ -32,5 +50,8 @@ public class CourseContentService {
     
     public List<Coursecontent> getCourseContentByCourseId(Integer id) {
         return courseContentRepository.getCourseContentByCourseId(id);
+    }
+    public Coursecontent getCourseContentById(Integer id) {
+        return courseContentRepository.getCourseContentById(id);
     }
 }

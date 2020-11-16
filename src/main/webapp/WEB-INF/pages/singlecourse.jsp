@@ -100,7 +100,7 @@
                                                 <li><i class="fa fa-user-o"></i>Students :  <span>${singleCourse.studentCapacity}</span></li>
                                             </ul>
                                             <div class="price-button pt-10">
-                                                <span>Price : <b>${singleCourse.price}</b></span>
+                                                <p>Price : <b>${singleCourse.price}</b></p>
                                                 <c:choose>
                                                     <c:when test="${enrolled}">
                                                         <h4 style="padding:3px 15px;
@@ -111,7 +111,7 @@
                                                             "> You Enrolled to This Course</h4>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <a href="${base}/buySingleCourse/${singleCourse.id}">
+                                                        <a href="${base}/buySingleCourse/${singleCourse.id}" style="margin-top:20px;">
                                                             <button type="button" class="main-btn" >Enroll Now</button>
                                                         </a>
                                                     </c:otherwise>

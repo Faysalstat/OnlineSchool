@@ -43,6 +43,7 @@
                     <a href="${base}/dashboard/courses" class="list-group-item list-group-item-action bg-light">Courses</a>
                     <a href="${base}/dashboard/profile" class="list-group-item list-group-item-action bg-light">Profile</a>
                     <a href="${base}/dashboard/mail" class="list-group-item list-group-item-action bg-light">Mail</a>
+                <a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
                 </div>
             </div>
 

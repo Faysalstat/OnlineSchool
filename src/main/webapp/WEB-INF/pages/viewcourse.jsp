@@ -56,7 +56,7 @@
                     <ul class="list-group">
                         <c:forEach var="content" items="${contentlist}"  varStatus="status" >
                             <a href="javascript:void(0)" onclick="setUrl('${content.lectureUrl}')" >
-                                <li class="list-group-item" >
+                                <li class="list-group-item" style="margin-bottom:10px;">
                                     <input type="checkbox"  checked="true"> Lecture : Basic of the programming
                                     <br/>
                                     <span class="video-length">${content.lectureLength} min</span>

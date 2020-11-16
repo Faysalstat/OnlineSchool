@@ -45,6 +45,14 @@ public class CourseContentRepository {
         return list;
 
     }
+
+    public Coursecontent getCourseContentById(Integer id) {
+        String sql = "select c from Coursecontent c where c.id=:id";
+        Query query = sessionFactory.getCurrentSession().createQuery(sql);
+        query.setParameter("id", id);
+        List<Coursecontent> list = query.list();
+        return list.get(0);
+    }
     
     
 }

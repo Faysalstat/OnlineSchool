@@ -38,7 +38,7 @@ public class MessageRepository {
     public List<Message> getMessagesByStudentUserId(Integer id) {
         List<Message> list = new ArrayList();
         try {
-            String sql = "select m from Message m where m.messageTo.user.id=:id";
+            String sql = "select m from Message m where m.messageTo.user.id=:id ORDER BY m.id DESC";
             Query query = sessionFactory.getCurrentSession().createQuery(sql);
             query.setParameter("id", id);
             list = query.list();

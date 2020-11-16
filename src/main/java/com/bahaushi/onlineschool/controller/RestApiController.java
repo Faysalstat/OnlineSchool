@@ -75,14 +75,7 @@ public class RestApiController {
         User user = (User) httpSession.getAttribute("userSession");
         Student student = studentService.getStudentByUserId(user.getId());
         Courses course = courseService.getCourseByCourseId(courseid);
-        Message message = new Message();
-        message.setSendtime(new Date());
-        message.setContent("Welcome to the "+course.getCourseName()
-                +". Happy Learning");
-        message.setMessageTo(student);
-        message.setMessageFrom(course.getTeacher());
-        message.setStatus("Unread");
-        messageService.SendMessage(message);
+        messageService.SendMessageEnrolledSuccess(course,student);
         MyCourses mycourses = new MyCourses();
         mycourses.setCourses(course);
         mycourses.setStudent(student);

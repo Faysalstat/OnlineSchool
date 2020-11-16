@@ -43,6 +43,7 @@
                     <a href="${base}/dashboard/courses" class="list-group-item list-group-item-action bg-light">Courses</a>
                     <a href="${base}/dashboard/profile" class="list-group-item list-group-item-action bg-light">Profile</a>
                     <a href="${base}/dashboard/mail" class="list-group-item list-group-item-action bg-light">Mail</a>
+                    <a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
                 </div>
             </div>
 
@@ -82,6 +83,7 @@
                                             <th>Sn</th>
                                             <th>Lectures</th>
                                             <th>url</th>
+                                            <th>Length in Minute</th>
                                             <th>Action</th>
                                           </tr>
                                         </thead>
@@ -93,20 +95,26 @@
                                                                                         <td>${cntentstatus.index+1}</td>
                                                                                         <td>Lecture ${content.id}</td>
                                                                                         <td>${content.lectureUrl}</td>
+                                                                                        <td>${content.lectureLength} Minutes</td>
                                                                                         <td>
-                                                                                        <button class="btn btn-info">Edit</button>
+                                                                                        <a href="editcontent/${content.id}">
+                                                                                            <button class="btn btn-info">Edit</button>
+                                                                                        </a>
+                                                                                        <a href="deletecontent/${content.id}">
                                                                                         <button class="btn btn-danger">X</button>
+                                                                                        </a>
+
+
                                                                                         </td>
                                                                                       </tr>
                                                                                       </c:forEach>
                                         </c:when>
                                         <c:otherwise>
                                         <tr>
-                                            <td colspan="4" style="font-weight:bolder;text-align:center;font-size:20px;"> No Content Yet</td>
+                                            <td colspan="5" style="font-weight:bolder;text-align:center;font-size:20px;"> No Content Yet</td>
                                         </tr>
                                         </c:otherwise>
                                         </c:choose>
-
                                         </tbody>
                                       </table>
                                   </div>
