@@ -64,13 +64,13 @@
                                 <h3 class="c-des">
                                     <span class="c-name">#${status.index+1}</span>
                                     ${domain.courses.courseName}
-                                    <a href="addcoursecontent/${domain.courses.id}">
+                                    <a href="${base}/dashboard/addcoursecontent/${domain.courses.id}">
                                         <button class="btn btn-success btn-left">Add Content</button>
                                     </a>
-                                    <a href="editcourse/${domain.courses.id}">
+                                    <a href="${base}/dashboard/editcourse/${domain.courses.id}">
                                         <button class="btn btn-info btn-left" style="margin-right:  10px;">Edit</button>
                                     </a>
-                                    <a href="deletecourse/${domain.courses.id}">
+                                    <a href="${base}/dashboard/deletecourse/${domain.courses.id}">
                                         <button  class="btn btn-danger btn-left" style="margin-right:10px;">X</button>
                                     </a>
                                     
@@ -97,10 +97,10 @@
                                                                                         <td>${content.lectureUrl}</td>
                                                                                         <td>${content.lectureLength} Minutes</td>
                                                                                         <td>
-                                                                                        <a href="editcontent/${content.id}">
+                                                                                        <a href="${base}/dashboard/editcontent/${content.id}">
                                                                                             <button class="btn btn-info">Edit</button>
                                                                                         </a>
-                                                                                        <a href="deletecontent/${content.id}">
+                                                                                        <a href="${base}/dashboard/deletecontent/${content.id}">
                                                                                         <button class="btn btn-danger">X</button>
                                                                                         </a>
 
@@ -138,16 +138,7 @@
                                             e.preventDefault();
                                             $("#wrapper").toggleClass("toggled");
                                         });
-//                                        function delete (id) {
-//                                            var request = new XMLHttpRequest();
-//                                            request.onreadystatechange = function () {
-//                                                if (this.readyState === 4 && this.status === 200) {
-//                                                    console.log(this.responseText);
-//                                                }
-//                                            };
-//                                            request.open('delete', 'deleteContent/' + id, true);
-//                                            request.send();
-//                                        }
+
         </script>
 
     </body>

@@ -30,7 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Faysal
  */
 @Controller
-public class pageController {
+public class PageController {
 
     @Autowired
     private CourseService courseService;
@@ -194,6 +194,11 @@ public class pageController {
     @GetMapping("login")
     public ModelAndView gotoLogIn(ModelAndView model) {
         model.setViewName("login");
+        return model;
+    }
+    @GetMapping("forgotpassword")
+    public ModelAndView forgotPassword(ModelAndView model) {
+        model.setViewName("passwordreset/forgotpassword");
         return model;
     }
 

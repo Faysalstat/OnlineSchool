@@ -64,7 +64,7 @@
                                                    />
                                         </div>
                                         <div class="singel-form">
-                                            <p><a href="#">Forgot Password</a></p>
+                                            <p><a href="${base}/forgotpassword">Forgot Password</a></p>
                                         </div>
                                         <div class="singel-form">
                                             <input class="main-btn" type="submit" value="Get In Now"/>

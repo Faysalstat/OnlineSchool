@@ -42,6 +42,7 @@ public class TeacherController {
     @Autowired
     UserService userService;
 
+
     @GetMapping({"/teachers", "/"})
     public ModelAndView goToTeachersPanel(ModelAndView model) {
 
@@ -203,7 +204,10 @@ public class TeacherController {
     }
 
     @GetMapping("profile")
-    public ModelAndView gotoProfile(ModelAndView model) {
+    public ModelAndView gotoProfile(ModelAndView model,HttpSession httpSession) {
+        User user = (User) httpSession.getAttribute("admin");
+        Teacher teacher = teacherService.getTeacherByUserId(user.getId());
+        model.addObject("teacher",teacher);
         model.setViewName("teacher/profile");
         return model;
     }

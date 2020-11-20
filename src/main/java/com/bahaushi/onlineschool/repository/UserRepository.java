@@ -6,6 +6,8 @@
 package com.bahaushi.onlineschool.repository;
 
 import java.util.List;
+
+import model.PasswordResetToken;
 import model.Student;
 import model.User;
 import org.hibernate.SessionFactory;
@@ -52,6 +54,19 @@ public class UserRepository {
         Query query = sessionFactory.getCurrentSession().createQuery(sql);
         query.setParameter("username", username);
         List<User> list = query.list();
+        return list.get(0);
+    }
+
+    public PasswordResetToken saveToken(PasswordResetToken passwordresettoken) {
+        sessionFactory.getCurrentSession().save(passwordresettoken);
+        return passwordresettoken;
+    }
+
+    public PasswordResetToken findByConfirmationToken(String token) {
+        String sql = "select t from PasswordResetToken t where t.token= :token";
+        Query query = sessionFactory.getCurrentSession().createQuery(sql);
+        query.setParameter("token", token);
+        List<PasswordResetToken> list = query.list();
         return list.get(0);
     }
 }

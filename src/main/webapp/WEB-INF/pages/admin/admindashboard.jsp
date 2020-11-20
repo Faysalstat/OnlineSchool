@@ -14,7 +14,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add Course</title>
+        <title>Dashboard</title>
         <link rel="shortcut icon" href="${base}/img/favicon.png" type="image/png">
         <!-- Bootstrap core CSS -->
         <link href="${base}/css/dash/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,11 +26,11 @@
 
     <body>
         <%
-            User admin = (User) session.getAttribute("admin");
+                   User admin = (User) session.getAttribute("admin");
 
-            if (admin == null || !admin.getUserRole().equals("TEACHER")) {
-                response.sendRedirect("login");
-            }
+                   if (admin == null || !admin.getUserRole().equals("TEACHER")) {
+                       response.sendRedirect("login");
+                   }
         %>
         <div class="d-flex" id="wrapper">
 
@@ -43,7 +43,7 @@
                     <a href="${base}/dashboard/courses" class="list-group-item list-group-item-action bg-light">Courses</a>
                     <a href="${base}/dashboard/profile" class="list-group-item list-group-item-action bg-light">Profile</a>
                     <a href="${base}/dashboard/mail" class="list-group-item list-group-item-action bg-light">Mail</a>
-                    <a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
+                <a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
                 </div>
             </div>
 
@@ -52,20 +52,14 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
 
-               <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                     <h2>Online School Dashboard</h2>
                 </nav>
-               <div class="row" style="margin-left:20px;">
-               <div class="col-md-4">
-               			<img src="${base}/img/teachers/${teacher.image}">
-               	</div>
-               		<div class="col-md-6">
-               			<h2>${teacher.firstName} ${teacher.lastName}</h2>
-               			<h3>${teacher.occupation}</h3>
-               			<h4>${teacher.designation} at ${teacher.institude}</h4>
-               			<p>${teacher.details}</p>
-               		</div>
-               	</div>
+
+                <div class="container-fluid">
+                    <h1 class="mt-4">Teachers Panel</h1>
+                    <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
                 </div>
             </div>
             <!-- /#page-content-wrapper -->
