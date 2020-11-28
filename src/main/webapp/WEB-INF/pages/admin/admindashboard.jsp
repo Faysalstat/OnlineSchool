@@ -14,7 +14,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Dashboard</title>
+        <title>Admin</title>
         <link rel="shortcut icon" href="${base}/img/favicon.png" type="image/png">
         <!-- Bootstrap core CSS -->
         <link href="${base}/css/dash/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,13 +25,14 @@
     </head>
 
     <body>
-        <%
-                   User admin = (User) session.getAttribute("admin");
 
-                   if (admin == null || !admin.getUserRole().equals("TEACHER")) {
-                       response.sendRedirect("login");
-                   }
-        %>
+    <%
+                User admin = (User) session.getAttribute("admin");
+                if (admin == null || !admin.getUserRole().equals("ADMIN")) {
+                    response.sendRedirect("login");
+                }
+            %>
+
         <div class="d-flex" id="wrapper">
 
             <!-- Sidebar -->
@@ -53,11 +54,11 @@
             <div id="page-content-wrapper">
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <h2>Online School Dashboard</h2>
+                    <h2>Admin Panel</h2>
                 </nav>
 
                 <div class="container-fluid">
-                    <h1 class="mt-4">Teachers Panel</h1>
+                    <h1 class="mt-4">Admin Panel</h1>
                     <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
                     <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
                 </div>
