@@ -29,11 +29,12 @@ public class Teacher implements java.io.Serializable {
     private String designation;
     private String details;
     private String image;
+    private Integer isCreated;
 
     public Teacher() {
     }
 
-    public Teacher(User user, String firstName, String lastName, String occupation, String institude, String designation, String details, String image) {
+    public Teacher(User user, String firstName, String lastName, String occupation, String institude, String designation, String details, String image,Integer isCreated) {
         this.user = user;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -42,6 +43,7 @@ public class Teacher implements java.io.Serializable {
         this.designation = designation;
         this.details = details;
         this.image = image;
+        this.isCreated=isCreated;
     }
 
     @Id
@@ -128,5 +130,12 @@ public class Teacher implements java.io.Serializable {
     public void setImage(String image) {
         this.image = image;
     }
+    @Column(name = "is_created")
+    public Integer getIsCreated() {
+        return isCreated;
+    }
 
+    public void setIsCreated(Integer isCreated) {
+        this.isCreated = isCreated;
+    }
 }

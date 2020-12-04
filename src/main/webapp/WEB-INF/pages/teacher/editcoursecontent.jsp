@@ -67,9 +67,7 @@
 
                         <div class="form-group">
                             <label>Content</label>
-                            <textarea class="form-control" rows="5" name="content">
-                                ${coursecontent.content}
-                            </textarea>
+                            <textarea class="form-control" rows="5" name="content">${coursecontent.content}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Lecture URL</label>

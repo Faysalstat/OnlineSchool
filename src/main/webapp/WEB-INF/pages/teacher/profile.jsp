@@ -59,13 +59,17 @@
                 </nav>
                <div class="row" style="margin-left:20px;">
                <div class="col-md-4">
-               			<img src="${base}/img/teachers/${teacher.image}">
+               			<img src="${base}/img/teachers/${teacher.image}" class="img-thumbnail" width="300" height="350">
                	</div>
                		<div class="col-md-6">
                			<h2>${teacher.firstName} ${teacher.lastName}</h2>
+               			<hr style="height:2px;">
                			<h3>${teacher.occupation}</h3>
                			<h4>${teacher.designation} at ${teacher.institude}</h4>
                			<p>${teacher.details}</p>
+               			<a href="${base}/dashboard/gotoeditprofile/${teacher.id}">
+                           <button class="btn btn-info">View Profile</button>
+                        </a>
                		</div>
                	</div>
                 </div>
@@ -78,15 +82,6 @@
         <!-- Bootstrap core JavaScript -->
         <script src="css/dash/vendor/jquery/jquery.min.js"></script>
         <script src="css/dash/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Menu Toggle Script -->
-        <script>
-            $("#menu-toggle").click(function (e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-        </script>
-
     </body>
 
 </html>

@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import model.Coursecontent;
 import model.Courses;
@@ -46,20 +47,39 @@ public class RestApiController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    private ServletContext servletContext;
+
     @PostMapping("uploadcourseimage")
     @CrossOrigin(origins = "*")
     public String courseImageUpload(
             @RequestParam("image") MultipartFile file,
             RedirectAttributes redirectAttributes) {
-
         String image = System.currentTimeMillis() + ".jpg";
-
         try {
             byte[] bytes = file.getBytes();
+            Path relpath = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/teachers/" + image);
+//            Path path = Paths.get("E:/onlineschool/src/main/webapp/WEB-INF/img/course/" + image);
+            Files.write(relpath, bytes);
+        } catch (IOException e) {
+            return "{\"action\":false}";
+        }
 
-//            Path path = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/course/" + image);
-            Path path = Paths.get("E:/onlineschool/src/main/webapp/WEB-INF/img/course/" + image);
-            Files.write(path, bytes);
+        return "{\"action\":true , \"iname\":\"" + image + "\"}";
+    }
+
+
+    @PostMapping("/dashboard/teacherprofileImageUpload")
+    @CrossOrigin(origins = "*")
+    public String teacherprofileImageUpload(
+            @RequestParam("image") MultipartFile file,
+            RedirectAttributes redirectAttributes) {
+        String image = System.currentTimeMillis() + ".jpg";
+        try {
+            byte[] bytes = file.getBytes();
+            Path relpath = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/teachers/" + image);
+//            Path path = Paths.get("E:/onlineschool/src/main/webapp/WEB-INF/img/teachers/" + image);
+            Files.write(relpath, bytes);
         } catch (IOException e) {
             return "{\"action\":false}";
         }

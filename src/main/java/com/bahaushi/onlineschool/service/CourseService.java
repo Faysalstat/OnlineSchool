@@ -61,6 +61,9 @@ public class CourseService {
     public Courses getCourseByCourseId(Integer id) {
         return coursesRepository.getCourseByCourseId(id);
     }
+    public CourseDomain getCourseDomainByCourseId(Integer id) {
+        return coursesRepository.getCourseDomainByCourseId(id);
+    }
 
     public List<Courses> getCourseByTeacherId(Integer id) {
         return coursesRepository.getCourseByTeacherId(id);

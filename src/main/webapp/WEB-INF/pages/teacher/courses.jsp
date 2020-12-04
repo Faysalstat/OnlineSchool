@@ -62,6 +62,11 @@
                     <div class="container">
                         <div class="jumbotron">
                             <h1>On Going Courses</h1>
+                            <c:choose>
+                               <c:when test="${courses.size()==0}">
+                                    <h4 style="color:red">No Running Courses Yet!</h4>
+                               </c:when>
+                            </c:choose>
                             <c:forEach var="domain" items="${courses}"  varStatus="status" >
                                 <h3 class="c-des">
                                     <span class="c-name">#${status.index+1}</span>
@@ -79,7 +84,7 @@
                                 </h3>
                                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo_${domain.courses.id}">Contents</button>
                                   <div id="demo_${domain.courses.id}" class="collapse" style="margin-top:20px;">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" style="background-color:white;">
                                         <thead>
                                           <tr>
                                             <th>Sn</th>
@@ -135,13 +140,6 @@
         <script src="${base}/css/dash/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Menu Toggle Script -->
-        <script>
-                                        $("#menu-toggle").click(function (e) {
-                                            e.preventDefault();
-                                            $("#wrapper").toggleClass("toggled");
-                                        });
-
-        </script>
 
     </body>
 

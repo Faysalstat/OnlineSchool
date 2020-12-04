@@ -196,10 +196,18 @@ public class TeacherController {
 
     @GetMapping("contents/{id}")
     public ModelAndView gotoContents(@PathVariable("id") Integer id, ModelAndView model) {
-        Teacher teacher = teacherService.getTeacherById(2);
+        Teacher teacher = teacherService.getTeacherById(id);
         List<Courses> courselist = courseService.getCourseByTeacherId(teacher.getId());
         model.addObject("courses", courselist);
         model.setViewName("teacher/courses");
+        return model;
+    }
+
+    @GetMapping("gotoeditprofile/{id}")
+    public ModelAndView gotoeditprofile(@PathVariable("id") Integer id, ModelAndView model) {
+        Teacher teacher = teacherService.getTeacherById(id);
+        model.addObject("teacher",teacher);
+        model.setViewName("teacher/editprofile");
         return model;
     }
 
@@ -208,8 +216,21 @@ public class TeacherController {
         User user = (User) httpSession.getAttribute("admin");
         Teacher teacher = teacherService.getTeacherByUserId(user.getId());
         model.addObject("teacher",teacher);
-        model.setViewName("teacher/profile");
+        if (teacher.getIsCreated()==0){
+            model.setViewName("teacher/editprofile");
+        }else{
+            model.setViewName("teacher/profile");
+        }
         return model;
+    }
+
+    @PostMapping("addteacherproile")
+    public ModelAndView updateProile(@ModelAttribute("teacher") Teacher teacher, ModelAndView model,
+                                     HttpSession httpSession) {
+        User user = (User) httpSession.getAttribute("admin");
+        Teacher updatableteacher = teacherService.getTeacherByUserId(user.getId());
+        teacherService.updateTeacher(teacher,updatableteacher);
+        return gotoProfile(model,httpSession);
     }
 
     @GetMapping("login")

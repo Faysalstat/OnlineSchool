@@ -25,8 +25,16 @@ public class TeacherService {
         return teacherRepository.addTeacher(teacher);
     }
 
-    public Teacher updateTeacher(Teacher teacher) {
-        return teacherRepository.updateTeacher(teacher);
+    public Teacher updateTeacher(Teacher teacher,Teacher updatableteacher) {
+        updatableteacher.setIsCreated(1);
+        updatableteacher.setDesignation(teacher.getDesignation());
+        updatableteacher.setFirstName(teacher.getFirstName());
+        updatableteacher.setLastName(teacher.getLastName());
+        updatableteacher.setInstitude(teacher.getInstitude());
+        updatableteacher.setDetails(teacher.getDetails());
+        updatableteacher.setOccupation(teacher.getOccupation());
+        updatableteacher.setImage(teacher.getImage());
+        return teacherRepository.updateTeacher(updatableteacher);
     }
 
     public List<Teacher> getAllTeacher() {

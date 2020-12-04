@@ -6,9 +6,8 @@
 package com.bahaushi.onlineschool.repository;
 
 import java.util.List;
-import model.CourseCount;
-import model.Courses;
-import model.MyCourses;
+
+import model.*;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +24,8 @@ public class CoursesRepository {
 
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private CourseContentRepository courseContentRepository;
 
     public String saveCourse(Courses course) {
         sessionFactory.getCurrentSession().save(course);
@@ -79,6 +80,16 @@ public class CoursesRepository {
         query.setParameter("id", id);
         List<Courses> list = query.list();
         return list.get(0);
+    }
+    public CourseDomain getCourseDomainByCourseId(Integer id) {
+        CourseDomain courseDomain = new CourseDomain();
+        String sql = "select c from Courses c where c.id=:cid";
+        Query query = sessionFactory.getCurrentSession().createQuery(sql);
+        query.setParameter("cid", id);
+        List<Courses> courselist = query.list();
+        courseDomain.setCourses(courselist.get(0));
+        courseDomain.setCoursecontents(courseContentRepository.getCourseContentByCourseId(id));
+        return courseDomain;
     }
 
     public List<Courses> getCourseByTeacherId(Integer id) {

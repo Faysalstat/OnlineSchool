@@ -39,12 +39,10 @@
             <div class="bg-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">Dashboard</div>
                 <div class="list-group list-group-flush">
-                    <a href="${base}/dashboard/teachers" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                    <a href="${base}/dashboard/addcourse" class="list-group-item list-group-item-action bg-light">Add Course</a>
-                    <a href="${base}/dashboard/courses" class="list-group-item list-group-item-action bg-light">Courses</a>
-                    <a href="${base}/dashboard/profile" class="list-group-item list-group-item-action bg-light">Profile</a>
+                    <a href="${base}/admin/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                    <a href="${base}/admin/addTeacher" class="list-group-item list-group-item-action bg-light">Add Teacher</a>
                     <a href="${base}/dashboard/mail" class="list-group-item list-group-item-action bg-light">Mail</a>
-                <a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
+                    <a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
                 </div>
             </div>
 
@@ -53,15 +51,37 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <h2>Admin Panel</h2>
-                </nav>
+                <div class="container">
+                  <h2>Running Courses</h2>
+                  <p>All Classes are listed here</p>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Sn#</th>
+                        <th>Course Name</th>
+                        <th>Taught By</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="course" items="${courseList}"  varStatus="status" >
+                        <tr>
+                           <td>${status.index+1}</td>
+                           <td>${course.courseName}</td>
+                           <td>${course.teacher.firstName} ${course.teacher.lastName}</td>
+                           <td>
+                                <a href="${base}/admin/viewCourse/${course.id}">
+                                   <button class="btn btn-info">View</button>
+                                </a>
+                           </td>
+                        </tr>
+                    </c:forEach>
 
-                <div class="container-fluid">
-                    <h1 class="mt-4">Admin Panel</h1>
-                    <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+
+                    </tbody>
+                  </table>
                 </div>
+
             </div>
             <!-- /#page-content-wrapper -->
 
