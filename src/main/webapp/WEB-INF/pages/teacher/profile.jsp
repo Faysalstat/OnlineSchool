@@ -68,7 +68,7 @@
                			<h4>${teacher.designation} at ${teacher.institude}</h4>
                			<p>${teacher.details}</p>
                			<a href="${base}/dashboard/gotoeditprofile/${teacher.id}">
-                           <button class="btn btn-info">View Profile</button>
+                           <button class="btn btn-info">Edit Profile</button>
                         </a>
                		</div>
                	</div>

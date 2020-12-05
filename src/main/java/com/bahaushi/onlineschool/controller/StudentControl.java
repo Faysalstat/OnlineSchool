@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 /**
  *
  * @author Faysal
@@ -31,6 +33,8 @@ public class StudentControl {
     UserService userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+
 
     @PostMapping("registerstudent")
     @CrossOrigin

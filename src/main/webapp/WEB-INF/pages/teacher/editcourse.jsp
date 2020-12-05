@@ -136,17 +136,16 @@
                                 <input type="number" class="form-control" name="price" value="${course.price}">
                                 <input id="imagevalue" type="hidden" name="image" value="${course.image}"/>
                             </div>
-                            <div style="width:60%;margin:100px auto;border:1px solid black">
-                                <div class="img-holder">
-                                    <img src="${base}/img/course/${course.image}" id="imgsrc" class="img-rounded upimg"/>
-                                </div>
-                                <div class="btn-holder" data-provides="fileupload">
-
-                                    <input class="inputfile" type="file" id="fileSelect" style="width:0">
-                                    <label class=" btn btn-info " style="margin-top: 7px" for="fileSelect">Browse</label>
-                                    <button class="btn btn-success" onclick="uploadImage();return false" >Uplaod</button>
-                                </div>
-                            </div>
+                           <div style="width:60%;margin:100px auto;border:1px solid black">
+                               <div class="img-holder">
+                                   <img src="${base}/img/course/cu-1.jpg" id="imgsrc" class="img-rounded upimg"/>
+                               </div>
+                               <div class="btn-holder" data-provides="fileupload">
+                                   <input class="inputfile" type="file" id="fileSelect" />
+                                   <br/><br/>
+                                   <button class="btn btn-success" onclick="uploadImage();return false;" >Uplaod</button>
+                               </div>
+                           </div>
 
                             <div class="form-group">
                                 <label>Summery</label>
@@ -197,7 +196,7 @@
                         document.getElementById("imgsrc").src = "${base}/img/course/" + data.iname;
                     }
                 };
-                request.open('POST', '${base}/uploadcourseimage', true);
+                request.open('POST', '${base}/dashboard/uploadcourseimage', true);
                 request.send(formData);
             }
         </script>

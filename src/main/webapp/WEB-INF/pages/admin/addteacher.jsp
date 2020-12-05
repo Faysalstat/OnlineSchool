@@ -39,10 +39,10 @@
 	<div class="bg-light border-right" id="sidebar-wrapper">
 		<div class="sidebar-heading">Dashboard</div>
 		<div class="list-group list-group-flush">
-            <a href="${base}/admin/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-            <a href="${base}/admin/addTeacher" class="list-group-item list-group-item-action bg-light">Add Teacher</a>
-            <a href="${base}/dashboard/mail" class="list-group-item list-group-item-action bg-light">Mail</a>
-            <a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
+             <a href="${base}/admin/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+             <a href="${base}/admin/addTeacher" class="list-group-item list-group-item-action bg-light">Add Teacher</a>
+             <a href="${base}/dashboard/mail" class="list-group-item list-group-item-action bg-light">Mail</a>
+             <a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
         </div>
 	</div>
 

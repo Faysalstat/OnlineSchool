@@ -89,6 +89,7 @@ public class CoursesRepository {
         List<Courses> courselist = query.list();
         courseDomain.setCourses(courselist.get(0));
         courseDomain.setCoursecontents(courseContentRepository.getCourseContentByCourseId(id));
+        courseDomain.setCoursefiles(courseContentRepository.getContentfileList(id));
         return courseDomain;
     }
 

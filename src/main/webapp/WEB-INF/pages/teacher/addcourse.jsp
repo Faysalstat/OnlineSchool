@@ -138,10 +138,9 @@
                                     <img src="${base}/img/course/cu-1.jpg" id="imgsrc" class="img-rounded upimg"/>
                                 </div>
                                 <div class="btn-holder" data-provides="fileupload">
-
-                                    <input class="inputfile" type="file" id="fileSelect" >
-                                    <label class=" btn btn-info " style="margin-top: 7px" for="fileSelect">Browse</label>
-                                    <button class="btn btn-success" onclick="uploadImage();return false" >Uplaod</button>
+                                    <input class="inputfile" type="file" id="fileSelect" />
+                                    <br/><br/>
+                                    <button class="btn btn-success" onclick="uploadImage();return false;" >Uplaod</button>
                                 </div>
                             </div>
 
@@ -194,7 +193,7 @@
                         document.getElementById("imgsrc").src = "${base}/img/course/" + data.iname;
                     }
                 };
-                request.open('POST', '${base}/uploadcourseimage', true);
+                request.open('POST', '${base}/dashboard/uploadcourseimage', true);
                 request.send(formData);
             }
         </script>

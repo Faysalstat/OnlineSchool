@@ -35,6 +35,7 @@ public class StudentRepository {
         
         return true;
     }
+
     public Student updateStudent(Student student) {
         sessionFactory.getCurrentSession().merge(student);
         return student;

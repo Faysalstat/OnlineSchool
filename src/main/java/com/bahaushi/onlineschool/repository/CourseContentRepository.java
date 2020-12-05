@@ -42,6 +42,11 @@ public class CourseContentRepository {
         sessionFactory.getCurrentSession().delete(coursecontent);
         return "Success";
     }
+
+    public String deleteContent(ContentFiles file) {
+        sessionFactory.getCurrentSession().delete(file);
+        return "Success";
+    }
     
     public List<Coursecontent> getCourseContentByCourseId(Integer id) {
         String sql = "select c from Coursecontent c where c.courses.id=:id";
@@ -52,6 +57,13 @@ public class CourseContentRepository {
 
     }
 
+    public ContentFiles getCourseFileById(Integer id) {
+        String sql = "select c from ContentFiles c where c.id=:id";
+        Query query = sessionFactory.getCurrentSession().createQuery(sql);
+        query.setParameter("id", id);
+        List<ContentFiles> list = query.list();
+        return list.get(0);
+    }
     public Coursecontent getCourseContentById(Integer id) {
         String sql = "select c from Coursecontent c where c.id=:id";
         Query query = sessionFactory.getCurrentSession().createQuery(sql);
