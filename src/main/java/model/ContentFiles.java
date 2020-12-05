@@ -10,16 +10,16 @@ import static javax.persistence.GenerationType.IDENTITY;
 )
 public class ContentFiles {
     private Integer id;
-    private Coursecontent content;
+    private Courses courses;
     private String fileName;
     private String fileUrl;
 
     public ContentFiles() {
     }
 
-    public ContentFiles(Integer id, Coursecontent content, String file_name, String fileUrl) {
+    public ContentFiles(Integer id,Courses courses, String file_name, String fileUrl) {
         this.id = id;
-        this.content = content;
+        this.courses=courses;
         this.fileName = fileName;
         this.fileUrl = fileUrl;
     }
@@ -37,13 +37,13 @@ public class ContentFiles {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "content_id")
-    public Coursecontent getContent() {
-        return content;
+    @JoinColumn(name = "course_id")
+    public Courses getCourses() {
+        return courses;
     }
 
-    public void setContent(Coursecontent content) {
-        this.content = content;
+    public void setCourses(Courses courses) {
+        this.courses = courses;
     }
 
     @Column(name = "file_name")
@@ -63,4 +63,5 @@ public class ContentFiles {
     public void setFileUrl(String fileUrl) {
         this.fileUrl = fileUrl;
     }
+
 }

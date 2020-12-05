@@ -76,6 +76,7 @@ public class TeacherController {
         return model;
     }
 
+
     @GetMapping("editcontent/{id}")
     public ModelAndView editContent(@PathVariable("id") Integer id,
                                    ModelAndView model,HttpSession httpSession) {
@@ -159,6 +160,25 @@ public class TeacherController {
         model.addObject("course", course);
         model.setViewName("teacher/addcoursecontent");
         return model;
+    }
+
+    @GetMapping("addfile/{id}")
+    public ModelAndView addfile(@PathVariable("id") Integer id,
+                                ModelAndView model) {
+        Courses course = courseService.getCourseByCourseId(id);
+        model.addObject("course",course);
+        model.setViewName("teacher/addcontentfiles");
+        return model;
+    }
+
+    @PostMapping("addcontentfiles")
+    public ModelAndView addfile(@ModelAttribute("contentfile") ContentFiles contentFiles,
+                                ModelAndView model,
+                                HttpSession httpSession) {
+        Courses course = courseService.getCourseByCourseId(contentFiles.getCourses().getId());
+        contentFiles.setCourses(course);
+        courseContentService.addFile(contentFiles);
+        return gotoCourses( model, httpSession);
     }
 
     @GetMapping("editcourse/{id}")

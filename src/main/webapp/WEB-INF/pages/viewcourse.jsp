@@ -45,6 +45,7 @@
                             src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
                     </iframe>
                     <hr style="height:5px;background-color:#eee"/>
+
                     <div>
 
 
@@ -52,7 +53,7 @@
 
                 </div>
                 <div class="col-md-4">
-                    <h2>Basic List Group</h2>
+                    <h2>Lectures</h2>
                     <ul class="list-group">
                         <c:forEach var="content" items="${contentlist}"  varStatus="status" >
                             <a href="javascript:void(0)" onclick="setUrl('${content.lectureUrl}')" >
@@ -63,6 +64,18 @@
                                 </li> 
                             </a>
                         </c:forEach>
+                    </ul>
+                    <h2>Lectures files</h2>
+                    <ul class="list-group">
+                         <c:forEach var="file" items="${filesList}"  varStatus="status" >
+                                <a href="${base}/files/${file.fileUrl}">
+                                    <li class="list-group-item" style="margin-bottom:10px;">
+                                       <img src="${base}/img/all-icon/pdf.ico" style="width:30px;height:30px;" />
+                                       <span>${file.fileName}</span>
+                                    </li>
+                                </a>
+                         </c:forEach>
+
 
                     </ul>
                 </div>

@@ -12,13 +12,8 @@ import com.bahaushi.onlineschool.service.StudentService;
 import com.bahaushi.onlineschool.service.TeacherService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import model.Coursecontent;
-import model.Courses;
-import model.Message;
-import model.MyCourses;
-import model.Student;
-import model.Teacher;
-import model.User;
+
+import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -216,7 +211,9 @@ public class PageController {
         List<Message> unread = messageService.getUnreadMessagesByStudentUserId(user.getId());
         model.addObject("unread", unread);
         List<Coursecontent> contentlist = courseContentService.getCourseContentByCourseId(id);
+        List<ContentFiles> filesList = courseContentService.getContentfileList(id);
         model.addObject("contentlist", contentlist);
+        model.addObject("filesList", filesList);
         model.setViewName("viewcourse");
         return model;
     }

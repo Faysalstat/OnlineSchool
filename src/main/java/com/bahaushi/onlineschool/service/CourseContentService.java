@@ -9,6 +9,7 @@ import com.bahaushi.onlineschool.repository.CourseContentRepository;
 import java.util.List;
 
 import com.bahaushi.onlineschool.repository.StudentRepository;
+import model.ContentFiles;
 import model.Coursecontent;
 import model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,10 @@ public class CourseContentService {
 
         return "Success";
     }
+
+    public String addFile(ContentFiles contentFiles) {
+        return courseContentRepository.addFile(contentFiles);
+    }
     public String updateContent(Coursecontent coursecontent) {
         return courseContentRepository.updateContent(coursecontent);
     }
@@ -53,5 +58,9 @@ public class CourseContentService {
     }
     public Coursecontent getCourseContentById(Integer id) {
         return courseContentRepository.getCourseContentById(id);
+    }
+
+    public List<ContentFiles> getContentfileList(Integer id) {
+        return courseContentRepository.getContentfileList(id);
     }
 }

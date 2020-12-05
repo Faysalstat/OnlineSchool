@@ -6,6 +6,8 @@
 package com.bahaushi.onlineschool.repository;
 
 import java.util.List;
+
+import model.ContentFiles;
 import model.Coursecontent;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -26,6 +28,10 @@ public class CourseContentRepository {
 
     public String saveContent(Coursecontent coursecontent) {
         sessionFactory.getCurrentSession().save(coursecontent);
+        return "Success";
+    }
+    public String addFile(ContentFiles contentFiles) {
+        sessionFactory.getCurrentSession().save(contentFiles);
         return "Success";
     }
     public String updateContent(Coursecontent coursecontent) {
@@ -52,6 +58,14 @@ public class CourseContentRepository {
         query.setParameter("id", id);
         List<Coursecontent> list = query.list();
         return list.get(0);
+    }
+
+    public List<ContentFiles> getContentfileList(Integer id) {
+        String sql = "select c from ContentFiles c where c.courses.id=:id";
+        Query query = sessionFactory.getCurrentSession().createQuery(sql);
+        query.setParameter("id", id);
+        List<ContentFiles> list = query.list();
+        return list;
     }
     
     

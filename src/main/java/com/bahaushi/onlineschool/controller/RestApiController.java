@@ -17,12 +17,8 @@ import java.nio.file.Paths;
 import java.util.Date;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import model.Coursecontent;
-import model.Courses;
-import model.Message;
-import model.MyCourses;
-import model.Student;
-import model.User;
+
+import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -61,6 +57,7 @@ public class RestApiController {
             Path relpath = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/teachers/" + image);
 //            Path path = Paths.get("E:/onlineschool/src/main/webapp/WEB-INF/img/course/" + image);
             Files.write(relpath, bytes);
+
         } catch (IOException e) {
             return "{\"action\":false}";
         }
@@ -85,6 +82,29 @@ public class RestApiController {
         }
 
         return "{\"action\":true , \"iname\":\"" + image + "\"}";
+    }
+
+    @PostMapping("/dashboard/contentfileUpload")
+    @CrossOrigin(origins = "*")
+    public String contentfileUpload(
+            @RequestParam("file") MultipartFile file,
+            RedirectAttributes redirectAttributes) {
+        String filename = System.currentTimeMillis() + ".pdf";
+        try {
+            byte[] bytes = file.getBytes();
+            Path relpath = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/files/" + filename);
+//            Path path = Paths.get("E:/onlineschool/src/main/webapp/WEB-INF/img/teachers/" + image);
+            Files.write(relpath, bytes);
+//            ContentFiles contentFiles= new ContentFiles();
+//            contentFiles.setContent(content);
+//            contentFiles.setFileName(filename);
+//            courseContentService.addFile(contentFiles);
+
+        } catch (IOException e) {
+            return "{\"action\":false}";
+        }
+
+        return "{\"action\":true , \"filename\":\"" + filename + "\"}";
     }
 
     @PostMapping("paymentsuccess/{reference}/{courseId}")
