@@ -46,16 +46,46 @@
             </div>
             <div class="teachers">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-md-6">
                         <div class="singel-teachers mt-30 text-center">
                             <div class="image">
-                                <img src="${base}/img/teachers/t-1.jpg" alt="Teachers">
-                            </div>
-                            <div class="cont">
-                                <a href="teachers-singel .html"><h6>mujitaba m. Naabba</h6></a>
-                                <span>principal</span>
+                                <img src="${base}/img/teachers/${teacher.image}" alt="Teachers">
                             </div>
                         </div> <!-- singel teachers -->
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <table class="table table-striped" style="margin-top:20px">
+                            <tbody>
+                              <tr>
+                                <td>Name</td>
+                                <td>${teacher.firstName} ${teacher.lastName}</td>
+                              </tr>
+                              <tr>
+                                <td>Occupation</td>
+                                <td>${teacher.occupation}</td>
+                              </tr>
+                              <tr>
+                                <td>Institute</td>
+                                <td>${teacher.institude}</td>
+                              </tr>
+                              <tr>
+                                <td>Designation</td>
+                                <td>${teacher.designation}</td>
+                              </tr>
+                              <tr>
+                                 <td>Contact</td>
+                                 <td>${teacher.user.contact}</td>
+                              </tr>
+                              <tr>
+                                 <td>Email</td>
+                                 <td>${teacher.user.email}</td>
+                              </tr>
+                              <tr>
+                                 <td>Details</td>
+                                 <td>${teacher.details}</td>
+                              </tr>
+                            </tbody>
+                          </table>
                     </div>
 
 

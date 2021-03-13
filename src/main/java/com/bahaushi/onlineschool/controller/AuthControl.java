@@ -24,7 +24,7 @@ public class AuthControl {
     @PostMapping("sendtoken")
     @CrossOrigin
     public ModelAndView addStudent(@ModelAttribute("user") User user, ModelAndView model){
-        User existingUser = userService.getUserByEmail(user.getEmail());
+        User existingUser = userService.getUserByEmail(user.getEmail(),user.getUsername());
         if (existingUser != null) {
             // Create token
             PasswordResetToken confirmationToken = new PasswordResetToken();
@@ -35,7 +35,7 @@ public class AuthControl {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(existingUser.getEmail());
             mailMessage.setSubject("Complete Password Reset!");
-            mailMessage.setFrom("test-email@gmail.com");
+            mailMessage.setFrom("information@bahaushiya.education");
 
 //            Here the URL need to be change while deploying
             mailMessage.setText("To complete the password reset process, please click here: "
@@ -59,7 +59,7 @@ public class AuthControl {
          PasswordResetToken token = userService.findByConfirmationToken(confirmationToken);
 
         if (token != null) {
-            User user = userService.getUserByEmail(token.getUser().getEmail());
+            User user = userService.getUserByEmail(token.getUser().getEmail(),token.getUser().getUsername());
             modelAndView.addObject("user", user);
             modelAndView.addObject("emailId", user.getEmail());
             modelAndView.setViewName("passwordreset/resetpassword");

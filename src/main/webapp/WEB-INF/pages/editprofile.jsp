@@ -45,57 +45,51 @@
     </head>
 
     <body>
-
         <hd:customheader/>
-
-
-
         <section id="courses-part" class="pt-20 pb-120">
             <div class="container" style>
-                <div class="tab-content" id="myTabContent" style="border:1psolid black">
-                  <div class="container" style="margin:auto;width:60%">
-                                 <h2 style="text-align: center;">Teachers Profile</h2>
-                                 <div style="width:300px;margin:auto">
-                                     <img id="propic" src="${base}/img/students/${student.image}" class="img-thumbnail" alt="Cinque Terre" width="304" height="200"
-                                     style="margin-bottom:20px;">
-                                     <form>
-                                         <input  type="file" id="fileSelect" />
-                                     </form>
-                                     <button style="margin-top:10px;" class="btn btn-success" onclick="uploadImage()" >Uplaod</button>
-                                 </div>
+                <div class="tab-content" id="myTabContent" style="border:1px solid black;padding:20px">
+                <div class="row">
+                        <div class="col-md-6">
+                            <img id="propic" src="${base}/img/students/${student.image}" class="img-thumbnail" alt="Cinque Terre" width="304" height="200"
+                            style="margin-bottom:20px;">
+                            <form>
+                                <input  type="file" id="fileSelect" />
+                            </form>
+                            <button style="margin-top:10px;" class="btn btn-success" onclick="uploadImage()" >Uplaod</button>
+                        </div>
+                        <div class="col-md-6">
+                             <form  action="${base}/addstudentprofile" method="POST" modelAttribute="student">
+                                <div class="form-group">
+                                    <input type="hidden" name="id" value="${student.id}"/>
+                                    <input type="hidden" name="image" id="propicimage" value="${student.image}">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" name="firstName" value="${student.firstName}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" name="lastName" value="${student.lastName}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Institute</label>
+                                    <input type="text" class="form-control" name="institude" value="${student.institude}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Occupation</label>
+                                    <input type="text" class="form-control" name="degree" value="${student.degree}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Subject</label>
+                                    <input type="text" class="form-control" name="subject" value="${student.subject}">
+                                </div>
+                                <br/><br/>
 
-                                  <form  action="${base}/addstudentprofile" method="POST" modelAttribute="student">
-                                  	<div class="form-group">
-                                  	<input type="hidden" name="id" value="${student.id}"/>
-                                  	<input type="hidden" name="image" id="propicimage" value="${student.image}">
-                                      	<label>First Name</label>
-                                      	<input type="text" class="form-control" name="firstName" value="${student.firstName}">
-                                      </div>
-                                      <div class="form-group">
-                                      	<label>Last Name</label>
-                                      	<input type="text" class="form-control" name="lastName" value="${student.lastName}">
-                                      </div>
-                                      <div class="form-group">
-                                         <label>Instituite</label>
-                                         <input type="text" class="form-control" name="institude" value="${student.institude}">
-                                      </div>
-                                      <div class="form-group">
-                                      	<label>Occupation</label>
-                                      	<input type="text" class="form-control" name="degree" value="${student.degree}">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Subject</label>
-                                          <input type="text" class="form-control" name="subject" value="${degree.subject}">
-                                      </div>
-                                      <br/><br/>
-
-                                      <div class="form-group">
-                                      	<input class="btn btn-primary" type="submit" value="Submit" >
-                                      </div>
-                                  </form>
-                                 </div>
-                </div> <!-- tab content -->
-            </div> <!-- container -->
+                                <div class="form-group">
+                                    <input class="btn btn-primary" type="submit" value="Submit" >
+                                </div>
+                             </form>
+                        </div>
+                </div>
         </section>
 
         <section id="cta-block" class="cta-block bg-cover pt-60 pb-60">

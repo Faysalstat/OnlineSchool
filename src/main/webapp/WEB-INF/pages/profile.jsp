@@ -56,38 +56,49 @@
                   <div class="row">
 
                         <div class="col-md-3">
-                                <img src="${base}/img/students/${student.image}" width="300" height="300">
+                                <img src="${base}/img/students/${student.image}" class="img-thumbnail" width="300" height="300">
                         </div>
-                        <div class="col-md-2">
-                                <div class="titles">Name</div>
-                                <div class="titles">Institude</div>
-                                <div class="titles">Degree</div>
-                                <div class="titles">Subeject</div>
-                                <div class="titles">Email</div>
-                                <div class="titles">Contact</div>
-                                <div class="titles">User Name</div>
-                                <div class="titles">Password</div>
-
+                        <div class="col-md-6">
+                            <table class="table table-striped">
+                            <tbody>
+                            	<tr>
+                            		<td>Name</td>
+                            		<td>${student.firstName} ${student.lastName}</td>
+                            	</tr>
+                            	<tr>
+                            		<td>Degree</td>
+                            		<td>${student.degree}</td>
+                            	</tr>
+                            	<tr>
+                            		<td>Subject</td>
+                            		<td>${student.subject}</td>
+                            	</tr>
+                            	<tr>
+                            		<td>Email</td>
+                            		<td>${student.user.email}</td>
+                            	</tr>
+                            	<tr>
+                            		<td>Contact</td>
+                            		<td>${student.user.contact}</td>
+                            	</tr>
+                            	<tr>
+                            		<td>User Name</td>
+                            		<td>${student.user.username}</td>
+                            	</tr>
+                            	<tr>
+                            		<td>Password</td>
+                            		<td>
+                            		    <a href="${base}/changePassword/${student.user.email}">Change Password</a></div>
+                                    </td>
+                            	</tr>
+                            </tbody>
+                            </table>
                         </div>
-
                         <div class="col-md-3">
-                            <div class="info">${student.firstName} ${student.lastName}
 
-                            </div>
-                            <div class="info">${student.institude}</div>
-                            <div class="info">${student.degree}</div>
-                            <div class="info">${student.subject}</div>
-                            <div class="info">${student.user.email}</div>
-                            <div class="info">${student.user.contact}</div>
-                            <div class="info">${student.user.username}</div>
-                            <div class="info"><a href="${base}/changePassword/${student.user.email}">Change Password</a></div>
-
-                        </div>
-                        <div class="col-md-4">
-
-                                                <a href="${base}/editprofile">
-                                                    <button type="button" class="btn btn-success"> Edit Profile</button>
-                                                </a>
+                           <a href="${base}/editprofile">
+                                 <button type="button" class="btn btn-success"> Edit Profile</button>
+                           </a>
 
                         </div>
                   </div>

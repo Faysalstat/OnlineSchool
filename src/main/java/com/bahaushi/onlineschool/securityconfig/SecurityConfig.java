@@ -47,13 +47,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests().antMatchers("/login","/registration",
-                        "/registerstudent","/dashboard/**","/admin/**","/testuser","/forgotpassword","/auth/**","/files/**",
+                        "/registerstudent","/dashboard/**","/admin/**","/testuser",
+                "/forgotpassword","/auth/**","/files/**","/checkEmail/**",
                 "/confirm-reset")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .failureUrl("/login?auth=failure")
                 .defaultSuccessUrl("/home", true)
                 .permitAll()
                 .and()
@@ -74,9 +76,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //Web resources
         web.ignoring().antMatchers("/css/**");
         web.ignoring().antMatchers("/img/**");
-//        web.ignoring().antMatchers("marraigeapp/img/profiles/**");
-//        web.ignoring().antMatchers("/img/**");
         web.ignoring().antMatchers("/js/**");
+        web.ignoring().antMatchers("/fonts/**");
+        
     }
 
 }

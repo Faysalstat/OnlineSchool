@@ -33,9 +33,15 @@ public class AdminController {
 
     @GetMapping({"/dashboard", "/"})
     public ModelAndView goToAdminPanel(ModelAndView model) {
-        List<Courses> courselist = courseService.getAllCourse();
-        model.addObject("courseList",courselist);
-        model.setViewName("admin/admindashboard");
+        try{
+            List<Courses> courselist = courseService.getAllCourse();
+            model.addObject("courseList",courselist);
+            model.setViewName("admin/admindashboard");
+        }
+        catch (Exception e){
+            model.setViewName("errorpage");
+        }
+
         return model;
 
     }

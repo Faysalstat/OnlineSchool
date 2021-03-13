@@ -22,6 +22,7 @@ import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -175,6 +176,12 @@ public class RestApiController {
         message.setStatus("Read");
         messageService.updateMessage(message);
         return "Success";
+    }
+    @GetMapping("checkEmail/{email}")
+    @CrossOrigin
+    public boolean checkEmail(@PathVariable("email") String email) {
+        boolean isEmailExist = userService.checkEmail(email);
+        return isEmailExist;
     }
     
     

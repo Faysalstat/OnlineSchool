@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="user"
-    ,catalog="onlineschooldb"
+    ,catalog="bahaushi_Onlineschooldb"
 )
 public class User  implements java.io.Serializable {
 

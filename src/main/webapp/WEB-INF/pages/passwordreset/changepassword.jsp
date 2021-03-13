@@ -38,6 +38,10 @@
                 <hr style="height:5px;" />
                 <form action="${base}/auth/sendtoken" method="post" modelAttribute="user">
                     <div class="form-group">
+                                            <label>Your User Name:</label>
+                                            <input type="text" name="username"  class="form-control" value="${username}" />
+                                        </div>
+                    <div class="form-group">
                         <label>Please Confirm your Email Address:</label>
                         <input type="text" name="email"  class="form-control" value="${email}" />
                     </div>

@@ -58,7 +58,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+.login-error{
+background-color:#f7492a;
+padding:10px;
+border: 1px solid black;
+border-radius:5px;
+text-align:center;
+color:white
+}
 img {
 	max-width: 100%;
 }
