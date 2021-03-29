@@ -62,14 +62,44 @@
                			<img src="${base}/img/teachers/${teacher.image}" class="img-thumbnail" width="300" height="350">
                	</div>
                		<div class="col-md-6">
-               			<h2>${teacher.firstName} ${teacher.lastName}</h2>
-               			<hr style="height:2px;">
-               			<h3>${teacher.occupation}</h3>
-               			<h4>${teacher.designation} at ${teacher.institude}</h4>
-               			<p>${teacher.details}</p>
-               			<a href="${base}/dashboard/gotoeditprofile/${teacher.id}">
-                           <button class="btn btn-info">View Profile</button>
-                        </a>
+                        <table class="table table-striped">
+                            <tbody>
+                              <tr>
+                                <td>Name</td>
+                                <td>Doe</td>
+                              </tr>
+                              <tr>
+                                <td>Occupation</td>
+                                <td>Moe</td>
+                              </tr>
+                              <tr>
+                                <td>Designation</td>
+                                <td>Dooley</td>
+                              </tr>
+                              <tr>
+                                <td>Institute</td>
+                                <td>${teacher.institude}</td>
+                              </tr>
+                              <tr>
+                              	<td>Email</td>
+                              	<td>${teacher.user.email}</td>
+                              </tr>
+                              <tr>
+                              	<td>Contact</td>
+                              	<td>${teacher.user.contact}</td>
+                              </tr>
+                              <tr>
+                              	<td>User Name</td>
+                              	<td>${teacher.user.username}</td>
+                              </tr>
+                              <tr>
+                              	<td>Password</td>
+                              	<td>
+                              		<a href="${base}/changePassword/${teacher.user.email}">Change Password</a></div>
+                              	</td>
+                              </tr>
+                            </tbody>
+                        </table>
                		</div>
                	</div>
                 </div>

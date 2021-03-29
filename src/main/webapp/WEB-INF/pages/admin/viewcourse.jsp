@@ -39,13 +39,11 @@
 	<div class="bg-light border-right" id="sidebar-wrapper">
 		<div class="sidebar-heading">Dashboard</div>
 		<div class="list-group list-group-flush">
-			<a href="${base}/admin/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-			<a href="${base}/dashboard/addcourse" class="list-group-item list-group-item-action bg-light">Add Course</a>
-			<a href="${base}/dashboard/courses" class="list-group-item list-group-item-action bg-light">Courses</a>
-			<a href="${base}/dashboard/profile" class="list-group-item list-group-item-action bg-light">Profile</a>
-			<a href="${base}/dashboard/mail" class="list-group-item list-group-item-action bg-light">Mail</a>
-			<a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
-		</div>
+        	<a href="${base}/admin/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        	<a href="${base}/admin/addTeacher" class="list-group-item list-group-item-action bg-light">Add Teacher</a>
+        	<a href="${base}/dashboard/mail" class="list-group-item list-group-item-action bg-light">Mail</a>
+        	<a href="${base}/dashboard/logout" class="list-group-item list-group-item-action bg-light">Log Out</a>
+        </div>
 	</div>
 
 	<!-- /#sidebar-wrapper -->
@@ -77,7 +75,48 @@
 						<td>${content.lectureLength} Minutes</td>
 						<td>
 
-							<a href="${base}/admin/deletecontent/${content.id}">
+							<a href="${base}/admin/deletecont/${content.id}">
+								<button class="btn btn-danger">X</button>
+							</a>
+
+
+						</td>
+					</tr>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+			<tr>
+				<td colspan="5" style="font-weight:bolder;text-align:center;font-size:20px;"> No Content Yet</td>
+			</tr>
+		</c:otherwise>
+	</c:choose>
+</tbody>
+</table>
+
+<p>All Files are listed here</p>
+			<table class="table table-bordered" style="background-color:white;">
+				<thead>
+					<tr>
+						<th>Sn</th>
+						<th>File Name</th>
+						<th>Url</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:choose>
+					<c:when test="${domain.coursefiles.size() !=0}">
+					<c:forEach var="files" items="${domain.coursefiles}"  varStatus="cntentstatus" >
+					<tr>
+						<td>${cntentstatus.index+1}</td>
+						<td>${files.fileName}</td>
+						<td>
+						   <a href="${base}/files/${files.fileUrl}" target="_blank">
+						    View to click here
+						   </a>
+						</td>
+						<td>
+							<a href="${base}/admin/deleteFile/${files.id}">
 								<button class="btn btn-danger">X</button>
 							</a>
 

@@ -41,6 +41,9 @@
                     <label for="pwd">Password:</label>
                     <input type="password" class="form-control" name="password">
                 </div>
+                <div class="singel-form">
+                    <p><a href="${base}/forgotpassword">Forgot Password</a></p>
+                </div>
                 <div class="form-group" style="margin: auto">
                     <input type="submit" class="btn btn-success" value="submit">
                 </div>

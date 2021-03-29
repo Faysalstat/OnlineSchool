@@ -28,6 +28,9 @@ public class UserService {
     public User addUser(User user) {
         return userRepository.addUser(user);
     }
+    public boolean checkEmail(String email) {
+        return userRepository.checkEmail(email);
+    }
     public User updateUser(User user) {
         return userRepository.updateUser(user);
     }
@@ -43,8 +46,8 @@ public class UserService {
     public User getUserById(Integer id) {
         return userRepository.getUserById(id);
     }
-    public User getUserByEmail(String email) {
-        return userRepository.getUserByEmail(email);
+    public User getUserByEmail(String email,String username) {
+        return userRepository.getUserByEmail(email,username);
     }
     public User getUserByUsername(String username) {
         return userRepository.getUserByUsername(username);

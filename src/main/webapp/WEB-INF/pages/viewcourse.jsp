@@ -68,7 +68,7 @@
                     <h2>Lectures files</h2>
                     <ul class="list-group">
                          <c:forEach var="file" items="${filesList}"  varStatus="status" >
-                                <a href="${base}/files/${file.fileUrl}">
+                                <a href="${base}/files/${file.fileUrl}" target="_blank">
                                     <li class="list-group-item" style="margin-bottom:10px;">
                                        <img src="${base}/img/all-icon/pdf.ico" style="width:30px;height:30px;" />
                                        <span>${file.fileName}</span>

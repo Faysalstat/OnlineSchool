@@ -20,7 +20,7 @@ package model;
  */
 @Entity
 @Table(name = "password_reset_token",
-        catalog = "onlineschooldb"
+        catalog = "bahaushi_Onlineschooldb"
 )
 public class PasswordResetToken implements java.io.Serializable {
 

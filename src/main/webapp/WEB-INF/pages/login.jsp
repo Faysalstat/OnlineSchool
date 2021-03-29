@@ -7,7 +7,7 @@
 <c:set var="base" value="${fn:substring(url, 0, fn:length(url) - fn:length(req.requestURI))}${req.contextPath}" />
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,22 +17,31 @@
 
         <link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
-        <link rel="stylesheet" href="css/slick.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/nice-select.css">
-        <link rel="stylesheet" href="css/jquery.nice-number.min.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" href="css/override.css">
+        <link rel="stylesheet" href="${base}/css/slick.css">
+        <link rel="stylesheet" href="${base}/css/animate.css">
+        <link rel="stylesheet" href="${base}/css/nice-select.css">
+        <link rel="stylesheet" href="${base}/css/jquery.nice-number.min.css">
+        <link rel="stylesheet" href="${base}/css/magnific-popup.css">
+        <link rel="stylesheet" href="${base}/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${base}/css/font-awesome.min.css">
+        <link rel="stylesheet" href="${base}/css/default.css">
+        <link rel="stylesheet" href="${base}/css/style.css">
+        <link rel="stylesheet" href="${base}/css/responsive.css">
+        <link rel="stylesheet" href="${base}/css/override.css">
+        <style>
+            .login-error{
+                background-color:#f7492a;
+                padding:10px;
+                border: 1px solid black;
+                border-radius:5px;
+                text-align:center;
+                color:white
+                }
+        </style>
     </head>
     <body>
 
         <hd:customheader/>
-
         <section class="form-block signin-block">
             <div class="container">
                 <div class="signin pt-80 pb-80">
@@ -51,6 +60,11 @@
                                 </div> -->
                                 <div class="main-form">
                                     <form action="login" method="post">
+                                        <c:if test="${param.auth eq 'failure'}">
+                                            <div class="login-error">
+                                                Username/Password are incorrect
+                                            </div>
+                                        </c:if>
                                         <div class="singel-form">
                                             <label >Email</label>
                                             <input type="text" name="username"/>
@@ -68,7 +82,7 @@
                                         </div>
                                         <div class="singel-form">
                                             <input class="main-btn" type="submit" value="Get In Now"/>
-                                            
+
                                         </div>
                                     </form>
                                 </div>
@@ -85,14 +99,14 @@
         <hd:customfooter/>
 
         <!--====== jquery js ======-->
-        <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-        <script src="js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="${base}/js/vendor/modernizr-3.6.0.min.js"></script>
+        <script src="${base}/js/vendor/jquery-1.12.4.min.js"></script>
 
         <!--====== Bootstrap js ======-->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="${base}/js/bootstrap.min.js"></script>
 
         <!--====== Validator js ======-->
-        <script src="js/validator.min.js"></script>
+        <script src="${base}/js/validator.min.js"></script>
     </body>
 </html>
 

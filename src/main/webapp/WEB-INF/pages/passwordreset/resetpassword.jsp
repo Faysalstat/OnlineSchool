@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
             .btn{
-                width: 100px;
+                width: 200px;
             }
             .loginsection{
                     width:45%;
@@ -37,7 +37,6 @@
         <h1 style="font-weight: bolder;text-align: center">Reset Password</h1>
         <hr style="height:5px;" />
         <form action="${base}/auth/reset-password" method="post">
-                            ${fn:replace(SPRING_SECURITY_LAST_EXCEPTION.message, 'Bad credentials', 'Username/Password are incorrect')}
                             <div class="form-group">
                                 <label>User Name:</label>
                                 <input type="text" name="username"  class="form-control" value="${user.username}" />

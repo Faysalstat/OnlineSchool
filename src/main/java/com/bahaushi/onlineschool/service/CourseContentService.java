@@ -52,12 +52,18 @@ public class CourseContentService {
     public String deleteContent(Coursecontent coursecontent) {
         return courseContentRepository.deleteContent(coursecontent);
     }
+    public String deleteFiles(ContentFiles contentFiles) {
+        return courseContentRepository.deleteContent(contentFiles);
+    }
     
     public List<Coursecontent> getCourseContentByCourseId(Integer id) {
         return courseContentRepository.getCourseContentByCourseId(id);
     }
     public Coursecontent getCourseContentById(Integer id) {
         return courseContentRepository.getCourseContentById(id);
+    }
+    public ContentFiles getCourseFileById(Integer id) {
+        return courseContentRepository.getCourseFileById(id);
     }
 
     public List<ContentFiles> getContentfileList(Integer id) {

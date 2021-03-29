@@ -47,7 +47,7 @@
                                             <span class="caret"></span></a>
                                         <ul class="dropdown-menu" style="height: 190px;">
                                             <li><a style="padding: 10px" href="${base}/mycourses">My Courses</a></li>
-                                            <li><a style="padding: 10px" href="#">Profile</a></li>
+                                            <li><a style="padding: 10px" href="${base}/profile">Profile</a></li>
                                             <li><a style="padding: 10px" href="${base}/logout">Logout</a></li>
                                         </ul>
                                     </li>

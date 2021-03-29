@@ -42,6 +42,9 @@
                     <input type="password" class="form-control" name="password">
                 </div>
                 <div class="form-group" style="margin: auto">
+                <div class="singel-form">
+                   <p><a href="${base}/forgotpassword">Forgot Password</a></p>
+                </div>
                     <input type="submit" class="btn btn-success" value="submit">
                 </div>
             </form>

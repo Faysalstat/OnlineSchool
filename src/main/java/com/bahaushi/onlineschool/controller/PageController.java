@@ -16,8 +16,7 @@ import javax.servlet.http.HttpSession;
 import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -38,13 +37,30 @@ public class PageController {
     @Autowired
     MessageService messageService;
 
-//   @GetMapping("editprofile/{id}")
-//    public ModelAndView gotoEditProfile(@PathVariable("id") Integer id, ModelAndView model) {
-//        Person person = personService.findbyid(id);
-//        model.addObject("person", person);
-//        model.setViewName("editprofile");
-//        return model;
-//    }
+   @GetMapping("editprofile")
+    public ModelAndView gotoEditProfile(ModelAndView model,HttpSession httpSession) {
+
+        User user = (User) httpSession.getAttribute("userSession");
+        model.addObject("user", user);
+        Student student = studentService.getStudentByUserId(user.getId());
+        model.addObject("student", student);
+           List<Message> unread = messageService.getUnreadMessagesByStudentUserId(user.getId());
+           model.addObject("unread", unread);
+        model.setViewName("editprofile");
+        return model;
+    }
+
+    @PostMapping("addstudentprofile")
+    @CrossOrigin
+    public ModelAndView addstudentprofile(
+            @ModelAttribute("student") Student student, HttpSession httpSession,
+            ModelAndView model) {
+        User user = (User) httpSession.getAttribute("userSession");
+        student.setUser(user);
+        studentService.updateStudent(student);
+        return gotoprofile(model,httpSession);
+    }
+
     @GetMapping("aboutus")
     public ModelAndView gotoAbout(ModelAndView model, HttpSession httpSession) {
 
@@ -194,6 +210,24 @@ public class PageController {
     @GetMapping("forgotpassword")
     public ModelAndView forgotPassword(ModelAndView model) {
         model.setViewName("passwordreset/forgotpassword");
+        return model;
+    }
+
+    @GetMapping("profile")
+    public ModelAndView gotoprofile(ModelAndView model,HttpSession httpSession) {
+        User user = (User) httpSession.getAttribute("userSession");
+        Student student = studentService.getStudentByUserId(user.getId());
+        model.addObject("student",student);
+        model.addObject("user", user);
+        List<Message> unread = messageService.getUnreadMessagesByStudentUserId(user.getId());
+        model.addObject("unread", unread);
+        model.setViewName("profile");
+        return model;
+    }
+    @GetMapping("changePassword/{email}")
+    public ModelAndView changePassword(@PathVariable("email") String email,ModelAndView model) {
+        model.addObject("email",email);
+        model.setViewName("passwordreset/changepassword");
         return model;
     }
 

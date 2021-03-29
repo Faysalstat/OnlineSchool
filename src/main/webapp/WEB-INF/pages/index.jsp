@@ -42,7 +42,7 @@
                                 <h1 data-animation="bounceInLeft" data-delay="1s">Your courses to success</h1>
                                 <p data-animation="fadeInUp" data-delay="1.3s">Learn Top Technology Skills in Demand for 2020 and Beyond</p>
                                 <ul>
-                                    <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="register.html">Enroll for a Course</a></li>
+                                    <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="${base}/mycourses">Enroll for a Course</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                                 <h1 data-animation="bounceInLeft" data-delay="1s">Jump start and get ahead</h1>
                                 <p data-animation="fadeInUp" data-delay="1.3s">Gain proficiency in technology courses from industry experts.</p>
                                 <ul>
-                                    <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="register .html">Enroll for a Course</a></li>
+                                    <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="${base}/mycourses">Enroll for a Course</a></li>
                                 </ul>
                             </div>
                         </div>
