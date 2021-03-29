@@ -59,7 +59,7 @@ public class SpringConfig implements WebMvcConfigurer {
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("mail.bahaushiya.education");
+        mailSender.setHost("hostname");
         mailSender.setPort(8025);
         mailSender.setUsername("username");
         mailSender.setPassword("password");
@@ -68,7 +68,7 @@ public class SpringConfig implements WebMvcConfigurer {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.debug", "true");
-        props.put("mail.smtp.ssl.trust", "mail.bahaushiya.education");
+        props.put("mail.smtp.ssl.trust", "same as host name");
         return mailSender;
     }
 
