@@ -28,6 +28,16 @@
         <link rel="stylesheet" href="${base}/css/style.css">
         <link rel="stylesheet" href="${base}/css/responsive.css">
         <link rel="stylesheet" href="${base}/css/override.css">
+        <style>
+            .login-error{
+                background-color:#f7492a;
+                padding:10px;
+                border: 1px solid black;
+                border-radius:5px;
+                text-align:center;
+                color:white
+                }
+        </style>
     </head>
     <body>
 
@@ -50,13 +60,11 @@
                                 </div> -->
                                 <div class="main-form">
                                     <form action="login" method="post">
-                                    <c:if test="${param.auth eq 'failure'}">
-                                          <div class="login-error">
-                                             Username/Password are incorrect
-                                          </div>
-                                    </font>
-                                          </div>
-                                    </c:if>
+                                        <c:if test="${param.auth eq 'failure'}">
+                                            <div class="login-error">
+                                                Username/Password are incorrect
+                                            </div>
+                                        </c:if>
                                         <div class="singel-form">
                                             <label >Email</label>
                                             <input type="text" name="username"/>
@@ -74,7 +82,7 @@
                                         </div>
                                         <div class="singel-form">
                                             <input class="main-btn" type="submit" value="Get In Now"/>
-                                            
+
                                         </div>
                                     </form>
                                 </div>
