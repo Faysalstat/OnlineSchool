@@ -29,7 +29,7 @@ public class HibernateConfiguration {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://xjdz4.dailyrazor.com:3306/"
+        dataSource.setUrl("jdbc:mysql://gldz3.dailyrazor.com:3306/"
                 + "bahaushi_Onlineschooldb?"
                 + "useUnicode=true&useJDBCCompliantTimezoneShift="
                 + "true&useLegacyDatetimeCode=false&serverTimezone=UTC");
