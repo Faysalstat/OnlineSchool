@@ -43,7 +43,7 @@ public class HibernateConfiguration {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/onlineschooldb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
         dataSource.setUsername("root");
-//        dataSource.setPassword("");
+        dataSource.setPassword("Bahaushiya123");
         return dataSource;
     }
 
