@@ -33,15 +33,9 @@ public class AdminController {
 
     @GetMapping({"/dashboard", "/"})
     public ModelAndView goToAdminPanel(ModelAndView model) {
-        try{
-            List<Courses> courselist = courseService.getAllCourse();
-            model.addObject("courseList",courselist);
-            model.setViewName("admin/admindashboard");
-        }
-        catch (Exception e){
-            model.setViewName("errorpage");
-        }
-
+        List<Courses> courselist = courseService.getAllCourse();
+        model.addObject("courseList",courselist);
+        model.setViewName("admin/admindashboard");
         return model;
 
     }
@@ -77,23 +71,6 @@ public class AdminController {
         model.setViewName("admin/viewcourse");
         return model;
     }
-    @GetMapping("deletecont/{id}")
-    public ModelAndView deletecontent(@PathVariable("id") Integer id,
-                                      ModelAndView model) {
-        Coursecontent content = courseContentService.getCourseContentById(id);
-        courseContentService.deleteContent(content);
-        return goToAdminPanel(model);
-    }
-
-    @GetMapping("deleteFile/{id}")
-    public ModelAndView deleteFile(@PathVariable("id") Integer id,
-                                      ModelAndView model) {
-        ContentFiles files = courseContentService.getCourseFileById(id);
-        courseContentService.deleteFiles(files);
-        return goToAdminPanel(model);
-    }
-
-
 
     @PostMapping("/admin-login")
     public ModelAndView authAdmin(@ModelAttribute("user") User user,
@@ -112,6 +89,8 @@ public class AdminController {
 
         return model;
     }
+
+
 
     @GetMapping("deletecontent/{id}")
     public ModelAndView deletecontent(@PathVariable("id") Integer id,

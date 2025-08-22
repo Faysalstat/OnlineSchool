@@ -24,45 +24,31 @@ public class AuthControl {
     @PostMapping("sendtoken")
     @CrossOrigin
     public ModelAndView addStudent(@ModelAttribute("user") User user, ModelAndView model){
-        try {
-            System.out.println("finding the user");
-            User existingUser = userService.getUserByEmail(user.getEmail(),user.getUsername());
-            System.out.println("got the user");
-            if (existingUser != null) {
-                // Create token
-                PasswordResetToken confirmationToken = new PasswordResetToken();
-                confirmationToken.setUser(existingUser);
-                // Save it
-                System.out.println("Save it");
-                userService.saveToken(confirmationToken);
-                // Create the email
-                System.out.println("Create the mail");
-                SimpleMailMessage mailMessage = new SimpleMailMessage();
-                mailMessage.setTo(existingUser.getEmail());
-                mailMessage.setSubject("Complete Password Reset!");
-                mailMessage.setFrom("information@bahaushiya.education");
+        User existingUser = userService.getUserByEmail(user.getEmail());
+        if (existingUser != null) {
+            // Create token
+            PasswordResetToken confirmationToken = new PasswordResetToken();
+            confirmationToken.setUser(existingUser);
+            // Save it
+            userService.saveToken(confirmationToken);
+            // Create the email
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setTo(existingUser.getEmail());
+            mailMessage.setSubject("Complete Password Reset!");
+            mailMessage.setFrom("test-email@gmail.com");
 
 //            Here the URL need to be change while deploying
-                mailMessage.setText("To complete the password reset process, please click here: "
-                        + "http://www.bahaushiya.education/auth/confirm-reset?token=" + confirmationToken.getToken());
+            mailMessage.setText("To complete the password reset process, please click here: "
+                    + "http://localhost:8080/auth/confirm-reset?token=" + confirmationToken.getToken());
 
-                // Send the email
-                System.out.println("mail sendng");
-                emailSenderService.sendEmail(mailMessage);
-                System.out.println("mail sent");
+            // Send the email
+            emailSenderService.sendEmail(mailMessage);
 
-                model.addObject("message", "Request to reset password received. Check your inbox for the reset link.");
+            model.addObject("message", "Request to reset password received. Check your inbox for the reset link.");
 
-            } else {
-                model.addObject("message", "This User and Email Doesn't Match!");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            System.out.println(e);
-            model.addObject("message", "Oops...! Theres Some Error Occured while sendin Email!");
+        } else {
+            model.addObject("message", "This email address does not exist!");
         }
-
-
         model.setViewName("passwordreset/forgotpasswordmessage");
 
         return model;
@@ -73,7 +59,7 @@ public class AuthControl {
          PasswordResetToken token = userService.findByConfirmationToken(confirmationToken);
 
         if (token != null) {
-            User user = userService.getUserByEmail(token.getUser().getEmail(),token.getUser().getUsername());
+            User user = userService.getUserByEmail(token.getUser().getEmail());
             modelAndView.addObject("user", user);
             modelAndView.addObject("emailId", user.getEmail());
             modelAndView.setViewName("passwordreset/resetpassword");

@@ -93,51 +93,49 @@
                                         <div class="col-lg-6">
                                             <div class="singel-form">
                                                 <label>First Name</label>
-                                                <input type="text" name="student.firstName" value="${studentModel.student.firstName}"/>
+                                                <input type="text" name="student.firstName"/>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="singel-form">
                                                 <label>Last Name</label>
-                                                <input type="text" name="student.lastName" value="${studentModel.student.lastName}" />
+                                                <input type="text" name="student.lastName" />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="singel-form">
                                                 <label>Institute</label>
-                                                <input type="text" name="student.institude" value="${studentModel.student.institude}" />
+                                                <input type="text" name="student.institude" />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="singel-form">
                                                 <label>Subject</label>
-                                                <input type="text" name="student.subject" value="${studentModel.student.subject}"/>
+                                                <input type="text" name="student.subject"/>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="singel-form">
                                                 <label >Degree</label>
-                                                <input type="text" name="student.degree" value="${studentModel.student.degree}"/>
+                                                <input type="text" name="student.degree"/>
                                             </div>
                                         </div>
-                                    </div>.
+                                    </div>
                                     <div class="singel-form">
                                         <label>Your Email</label>
-                                        <p style="color:red">${emailExists}</p>
-                                        <input type="email" name="user.email" id="email" value="${studentModel.user.email}">
+                                        <input type="email" name="user.email" id="email">
                                     </div>
-
                                     <div class="singel-form">
                                         <label>Your Phone No.</label>
-                                        <input type="text" name="user.contact" value="${studentModel.user.contact}">
+                                        <input type="text" name="user.contact">
                                     </div>
                                     <div class="singel-form">
                                         <label>Username</label>
-                                        <input type="text" name="user.username" value="${studentModel.user.username}">
+                                        <input type="text" name="user.username">
                                     </div>
                                     <div class="singel-form">
                                         <label>Password</label>
-                                        <input type="password" name="user.password" value="${studentModel.user.password}">
+                                        <input type="password" name="user.password">
                                     </div>
 
                                 </form>
@@ -157,7 +155,6 @@
         <hd:customfooter/>
 
         <!--====== jquery js ======-->
-
 
         <script src="${base}/js/vendor/modernizr-3.6.0.min.js"></script>
         <script src="${base}/js/vendor/jquery-1.12.4.min.js"></script>

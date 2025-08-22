@@ -25,30 +25,25 @@ public class HibernateConfiguration {
         return sessionFactory;
     }
 
+
+//    @Bean
+//    public DataSource dataSource() {
+//        final DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://xjdz4.dailyrazor.com:3306/bahaushi_Onlineschooldb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+//        dataSource.setUsername("bahaushi_schoolonline");
+//        dataSource.setPassword("mE6IJS]E_B{k");
+//        return (DataSource)dataSource;
+//    }
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://gldz3.dailyrazor.com:3306/"
-                + "bahaushi_Onlineschooldb?"
-                + "useUnicode=true&useJDBCCompliantTimezoneShift="
-                + "true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-        dataSource.setUsername("bahaushi_schoolonline");
-        dataSource.setPassword("mE6IJS]E_B{k");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/onlineschooldb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        dataSource.setUsername("root");
+        dataSource.setPassword("root");
         return dataSource;
     }
-//    @Bean
-//    public DataSource dataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//        dataSource.setUrl("jdbc:mysql://localhost:3306/"
-//                + "onlineschooldb?"
-//                + "useUnicode=true&useJDBCCompliantTimezoneShift="
-//                + "true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-//        dataSource.setUsername("user");
-//        dataSource.setPassword("");
-//        return dataSource;
-//    }
 
     private Properties hibernateProperties() {
         Properties properties = new Properties();

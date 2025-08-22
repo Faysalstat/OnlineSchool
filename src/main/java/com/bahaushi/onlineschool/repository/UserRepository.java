@@ -42,25 +42,13 @@ public class UserRepository {
         List<User> list = query.list();
         return list.get(0);
     }
-    public User getUserByEmail(String email,String username) {
-        String sql = "select u from User u where u.email=:email and u.username=:username";
-        Query query = sessionFactory.getCurrentSession().createQuery(sql);
-        query.setParameter("email", email);
-        query.setParameter("username", username);
-        List<User> list = query.list();
-        return list.get(0);
-    }
-    public boolean checkEmail(String email) {
+    public User getUserByEmail(String email) {
         String sql = "select u from User u where u.email=:email";
         Query query = sessionFactory.getCurrentSession().createQuery(sql);
         query.setParameter("email", email);
         List<User> list = query.list();
-        if (list.size()>0){
-            return true;
-        }
-        return false;
+        return list.get(0);
     }
-
     public User getUserByUsername(String username) {
         String sql = "select u from User u where u.username=:username";
         Query query = sessionFactory.getCurrentSession().createQuery(sql);

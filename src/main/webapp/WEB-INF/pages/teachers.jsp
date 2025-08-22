@@ -51,7 +51,7 @@
                             <div class="col-sm-4">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="img/teachers/${teacher.image}" alt="Teachers" width="300" height="350">
+                                        <img src="img/teachers/${teacher.image}" alt="Teachers">
                                     </div>
                                     <div class="cont">
                                         <a href="singleTeacher/${teacher.id}"><h6>${teacher.firstName} ${teacher.lastName}</h6></a>

@@ -6,7 +6,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "contentfiles",
-        catalog = "bahaushi_Onlineschooldb"
+        catalog = "onlineschooldb"
 )
 public class ContentFiles {
     private Integer id;

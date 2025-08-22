@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "teacher",
-        catalog = "bahaushi_Onlineschooldb"
+        catalog = "onlineschooldb"
 )
 public class Teacher implements java.io.Serializable {
 

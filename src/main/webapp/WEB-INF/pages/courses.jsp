@@ -80,8 +80,7 @@
                                     <div class="singel-course mt-30">
                                         <div class="thum">
                                             <div class="image">
-                                                <img src="img/course/${course.image}" alt="Course"
-                                                style="width:100%;height:250px;">
+                                                <img src="img/course/${course.image}" alt="Course">
                                             </div>
                                             <div class="price">
                                                 <span>Free</span>

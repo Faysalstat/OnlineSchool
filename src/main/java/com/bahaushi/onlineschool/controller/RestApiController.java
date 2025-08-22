@@ -22,7 +22,6 @@ import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -47,7 +46,7 @@ public class RestApiController {
     @Autowired
     private ServletContext servletContext;
 
-    @PostMapping("dashboard/uploadcourseimage")
+    @PostMapping("uploadcourseimage")
     @CrossOrigin(origins = "*")
     public String courseImageUpload(
             @RequestParam("image") MultipartFile file,
@@ -55,7 +54,7 @@ public class RestApiController {
         String image = System.currentTimeMillis() + ".jpg";
         try {
             byte[] bytes = file.getBytes();
-            Path relpath = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/course/" + image);
+            Path relpath = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/teachers/" + image);
 //            Path path = Paths.get("E:/onlineschool/src/main/webapp/WEB-INF/img/course/" + image);
             Files.write(relpath, bytes);
 
@@ -66,24 +65,6 @@ public class RestApiController {
         return "{\"action\":true , \"iname\":\"" + image + "\"}";
     }
 
-
-    @PostMapping("/studentprofileImageUpload")
-    @CrossOrigin(origins = "*")
-    public String studentprofileImageUpload(
-            @RequestParam("image") MultipartFile file,
-            RedirectAttributes redirectAttributes) {
-        String image = System.currentTimeMillis() + ".jpg";
-        try {
-            byte[] bytes = file.getBytes();
-            Path relpath = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/students/" + image);
-//            Path path = Paths.get("E:/onlineschool/src/main/webapp/WEB-INF/img/teachers/" + image);
-            Files.write(relpath, bytes);
-        } catch (IOException e) {
-            return "{\"action\":false}";
-        }
-
-        return "{\"action\":true , \"iname\":\"" + image + "\"}";
-    }
 
     @PostMapping("/dashboard/teacherprofileImageUpload")
     @CrossOrigin(origins = "*")
@@ -153,8 +134,8 @@ public class RestApiController {
         try {
             byte[] bytes = file.getBytes();
 
-            Path path = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/course/" + image);
-//            Path path = Paths.get("H:/Fiverr Work/Project #5 Online School/onlineschool/src/main/webapp/WEB-INF/img/students/" + image);
+//            Path path = Paths.get(servletContext.getRealPath("/") + "/WEB-INF/img/course/" + image);
+            Path path = Paths.get("H:/Fiverr Work/Project #5 Online School/onlineschool/src/main/webapp/WEB-INF/img/students/" + image);
             Files.write(path, bytes);
         } catch (IOException e) {
             return "{\"action\":false}";
@@ -177,14 +158,13 @@ public class RestApiController {
         messageService.updateMessage(message);
         return "Success";
     }
-    @GetMapping("checkEmail/{email}")
-    @CrossOrigin
-    public boolean checkEmail(@PathVariable("email") String email) {
-        boolean isEmailExist = userService.checkEmail(email);
-        return isEmailExist;
-    }
     
-  
+    
+    @GetMapping("testuser")
+    @CrossOrigin(origins = "*")
+    public Courses test() {
+        return courseService.getCourseByCourseId(6);
+    }
     
 
 }
